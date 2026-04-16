@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Market Journal — Your Trading Journal, Supercharged</title>
+    <meta name="description" content="Track your market thesis, sentiment, and insights across stocks and themes. Built for traders who think in narratives, not just numbers." />
+
+    <!-- Smart Redirect for Existing Users -->
+    <script>
+      const SUPABASE_KEY = 'sb-zlktpzhuvojmcmtqeeuk-auth-token';
+      if (localStorage.getItem(SUPABASE_KEY)) {
+        window.location.replace('https://app.marketjournal.com');
+      }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner container">
+        <a href="/" class="nav-logo">
+          <div class="nav-logo-icon">
+            <i data-lucide="book-open-text"></i>
+          </div>
+          <span>Market Journal</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <a href="https://app.marketjournal.com" class="nav-cta">
+          Launch App <span class="arrow">&rarr;</span>
+        </a>
+        <button class="nav-mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+      <div class="nav-mobile" id="mobile-menu">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://app.marketjournal.com" class="nav-cta-mobile">Launch App &rarr;</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="hero-grid"></div>
+      <div class="container hero-content animate-on-scroll">
+        <div class="hero-badge">
+          <i data-lucide="trending-up" style="width:14px;height:14px;color:#10b981"></i>
+          <span>Built for active traders &amp; investors</span>
+        </div>
+        <h1 class="hero-headline">Your Trading Journal,<br /><span class="hero-accent">Supercharged</span></h1>
+        <p class="hero-sub">
+          Track your market thesis, sentiment, and insights across stocks and themes.<br class="hide-mobile" />
+          Built for traders who think in narratives, not just numbers.
+        </p>
+        <div class="hero-actions">
+          <a href="https://app.marketjournal.com" class="btn btn-primary btn-lg">
+            Start Journaling &mdash; It's Free
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-value">100%</span>
+            <span class="hero-stat-label">Free to use</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">Unlimited</span>
+            <span class="hero-stat-label">Journal entries</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">Real-time</span>
+            <span class="hero-stat-label">Market data</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">Features</span>
+          <h2 class="section-title">Everything you need to<br />journal smarter</h2>
+          <p class="section-sub">A purpose-built toolkit for tracking your market thinking over time.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card animate-on-scroll">
+            <div class="feature-icon feature-icon-green">
+              <i data-lucide="activity"></i>
+            </div>
+            <h3 class="feature-title">Sentiment Tracking</h3>
+            <p class="feature-desc">Tag entries as bullish, bearish, or neutral. Track how your sentiment evolves over time with visual indicators.</p>
+            <div class="feature-tags">
+              <span class="tag tag-green">Bullish</span>
+              <span class="tag tag-red">Bearish</span>
+              <span class="tag tag-muted">Neutral</span>
+            </div>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <div class="feature-icon feature-icon-blue">
+              <i data-lucide="layers"></i>
+            </div>
+            <h3 class="feature-title">Multi-Asset Journals</h3>
+            <p class="feature-desc">Organize entries by individual stocks or thematic portfolios. Cross-reference your thinking across positions.</p>
+            <div class="feature-pills">
+              <span class="pill">AAPL</span>
+              <span class="pill">NVDA</span>
+              <span class="pill">AI Theme</span>
+            </div>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <div class="feature-icon feature-icon-purple">
+              <i data-lucide="link"></i>
+            </div>
+            <h3 class="feature-title">Smart Embeds</h3>
+            <p class="feature-desc">Paste a tweet, Reddit post, or article URL &mdash; Market Journal automatically embeds the context alongside your notes.</p>
+            <div class="feature-embed-preview">
+              <div class="embed-bar"></div>
+              <div class="embed-lines">
+                <div class="embed-line" style="width:90%"></div>
+                <div class="embed-line" style="width:70%"></div>
+                <div class="embed-line" style="width:50%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <div class="feature-icon feature-icon-gold">
+              <i data-lucide="bar-chart-3"></i>
+            </div>
+            <h3 class="feature-title">Real-Time Data</h3>
+            <p class="feature-desc">Live stock prices, Fear &amp; Greed Index, and market indicators right in your dashboard.</p>
+            <div class="feature-ticker">
+              <div class="ticker-item">
+                <span class="ticker-symbol">SPY</span>
+                <span class="ticker-price">$542.18</span>
+                <span class="ticker-change ticker-up">+1.2%</span>
+              </div>
+              <div class="ticker-item">
+                <span class="ticker-symbol">QQQ</span>
+                <span class="ticker-price">$468.30</span>
+                <span class="ticker-change ticker-down">-0.4%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">How It Works</span>
+          <h2 class="section-title">Start in minutes,<br />not hours</h2>
+          <p class="section-sub">Three simple steps to a better trading journal.</p>
+        </div>
+        <div class="steps">
+          <div class="step animate-on-scroll">
+            <div class="step-number">1</div>
+            <div class="step-icon">
+              <i data-lucide="plus-circle"></i>
+            </div>
+            <h3 class="step-title">Add your tickers and themes</h3>
+            <p class="step-desc">Set up the stocks you follow and create thematic groups to organize your thinking.</p>
+          </div>
+          <div class="step-connector animate-on-scroll">
+            <div class="connector-line"></div>
+          </div>
+          <div class="step animate-on-scroll">
+            <div class="step-number">2</div>
+            <div class="step-icon">
+              <i data-lucide="pencil-line"></i>
+            </div>
+            <h3 class="step-title">Write journal entries with sentiment tags</h3>
+            <p class="step-desc">Capture your thesis, tag your sentiment, and embed supporting context from the web.</p>
+          </div>
+          <div class="step-connector animate-on-scroll">
+            <div class="connector-line"></div>
+          </div>
+          <div class="step animate-on-scroll">
+            <div class="step-number">3</div>
+            <div class="step-icon">
+              <i data-lucide="eye"></i>
+            </div>
+            <h3 class="step-title">Review your thesis over time</h3>
+            <p class="step-desc">Look back at how your thinking evolved. Spot patterns, learn from mistakes, and sharpen your edge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">Pricing</span>
+          <h2 class="section-title">Simple pricing.<br />Start free.</h2>
+          <p class="section-sub">Everything you need to start journaling your market thesis.</p>
+        </div>
+        <div class="pricing-cards">
+          <div class="pricing-card pricing-card-free animate-on-scroll">
+            <div class="pricing-card-header">
+              <span class="pricing-plan">Free</span>
+              <div class="pricing-price">
+                <span class="pricing-amount">$0</span>
+                <span class="pricing-period">/ forever</span>
+              </div>
+              <p class="pricing-desc">Everything you need to start journaling your market thesis.</p>
+            </div>
+            <ul class="pricing-features">
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Unlimited journal entries</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Real-time stock prices</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Sentiment tracking</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Smart embeds</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Multi-asset journals</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Fear &amp; Greed Index</span>
+              </li>
+            </ul>
+            <a href="https://app.marketjournal.com" class="btn btn-primary btn-full">
+              Get Started Free
+            </a>
+          </div>
+          <div class="pricing-card pricing-card-pro animate-on-scroll">
+            <div class="pricing-card-header">
+              <div class="pricing-badge">Coming Soon</div>
+              <span class="pricing-plan">Pro</span>
+              <div class="pricing-price">
+                <span class="pricing-amount pricing-amount-muted">TBD</span>
+              </div>
+              <p class="pricing-desc">Advanced features for serious traders.</p>
+            </div>
+            <ul class="pricing-features pricing-features-muted">
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Everything in Free</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Advanced analytics</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Portfolio performance tracking</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Export &amp; API access</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="pricing-check"></i>
+                <span>Priority support</span>
+              </li>
+            </ul>
+            <button class="btn btn-outline btn-full" disabled>
+              Coming Soon
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card animate-on-scroll">
+          <h2 class="cta-title">Ready to journal smarter?</h2>
+          <p class="cta-desc">Join traders who track their thesis, not just their trades.</p>
+          <a href="https://app.marketjournal.com" class="btn btn-primary btn-lg">
+            Start Journaling &mdash; It's Free
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <a href="/" class="footer-logo">
+              <div class="nav-logo-icon">
+                <i data-lucide="book-open-text"></i>
+              </div>
+              <span>Market Journal</span>
+            </a>
+            <p class="footer-tagline">Built for traders, by traders.</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4 class="footer-col-title">Product</h4>
+              <a href="#features">Features</a>
+              <a href="#pricing">Pricing</a>
+              <a href="https://app.marketjournal.com">Launch App</a>
+            </div>
+            <div class="footer-col">
+              <h4 class="footer-col-title">Legal</h4>
+              <a href="https://app.marketjournal.com/terms">Terms of Service</a>
+              <a href="https://app.marketjournal.com/privacy">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+              <h4 class="footer-col-title">Connect</h4>
+              <a href="#" class="footer-social">
+                <i data-lucide="twitter" style="width:16px;height:16px"></i>
+                <span>Twitter / X</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Market Journal. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
