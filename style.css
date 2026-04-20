@@ -605,10 +605,27 @@ img {
 .mock-entry-bar.bear { background: #f43f5e; }
 .mock-entry-bar.neut { background: #94a3b8; }
 .mock-entry-body { flex: 1; min-width: 0; }
-.mock-entry-meta { font-size: 10px; color: #6b7185; font-family: 'JetBrains Mono', monospace; }
+.mock-entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: #6b7185;
+  font-family: 'JetBrains Mono', monospace;
+}
+.mock-entry-tag {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #D8B8FF;
+  background: rgba(168, 85, 247, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
 .mock-entry-text { font-size: 13px; color: #c8cad3; margin-top: 3px; line-height: 1.4; }
 
-/* ── 2. Multi-asset sidebar ── */
+/* ── 2. Multi-asset sidebar (mirrors app .ticker-btn styling) ── */
 .mock-sidebar {
   background: #12141c;
   border: 1px solid #1e2030;
@@ -618,47 +635,58 @@ img {
   max-width: 300px;
   margin-left: auto;
 }
-.mock-sb-group { margin-bottom: 14px; }
+.mock-sb-group { margin-bottom: 10px; }
 .mock-sb-group:last-child { margin-bottom: 0; }
 .mock-sb-label {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.8px;
-  color: #6b7185;
+  color: #4a4d5a;
   text-transform: uppercase;
-  padding: 4px 6px 8px;
+  padding: 6px 12px 6px;
 }
 .mock-sb-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 7px 10px;
-  border-radius: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
   margin-bottom: 2px;
+  font-size: 13px;
+  color: #8b8d9a;
 }
-.mock-sb-item.active {
-  background: rgba(245, 197, 66, 0.1);
-  border-left: 2px solid #f5c542;
-  padding-left: 8px;
+/* Active state (green tint for a ticker trading up — matches app's .active-up) */
+.mock-sb-item.active-up {
+  background: rgba(34, 197, 94, 0.06);
 }
+.mock-sb-item.active-up .mock-sb-sym { color: #10b981; }
+.mock-sb-item.active-theme {
+  background: rgba(167, 139, 250, 0.06);
+}
+.mock-sb-item.active-theme .mock-sb-sym { color: #a78bfa; }
 .mock-sb-sym {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
   font-weight: 600;
+  font-size: 13px;
   color: #c8cad3;
 }
-.mock-sb-item.theme .mock-sb-sym {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #a78bfa;
-  font-weight: 500;
+.mock-sb-sym.theme-sym {
+  font-family: 'JetBrains Mono', monospace;
+  color: #c8cad3;
+  font-weight: 600;
 }
 .mock-sb-change {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 500;
 }
 .mock-sb-change.up { color: #10b981; }
 .mock-sb-change.down { color: #f43f5e; }
+.mock-sb-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #5a5d6a;
+}
 
 /* ── 3. Smart embeds tabs + preview ── */
 .mock-tabs {
@@ -691,6 +719,14 @@ img {
 .mock-embed-header { display: flex; }
 .mock-handle { font-size: 11px; font-weight: 600; color: #26A7DE; }
 .mock-embed-text { font-size: 12px; color: #8b8d9a; line-height: 1.45; }
+.mock-embed-image-indicator {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #5a5d6a;
+  margin-top: 2px;
+}
 .mock-embed-stats { font-size: 11px; color: #5a5d6a; margin-top: 2px; }
 .mock-link-row {
   display: flex;
@@ -707,64 +743,128 @@ img {
 .mock-link[data-source="reddit"]  { color: #FF4500; }
 .mock-link[data-source="news"]    { color: #4a85d6; }
 
-/* ── 4. Milestones timeline ── */
-.mock-timeline {
-  position: relative;
-  height: 86px;
-  padding: 28px 18px 0;
+/* ── 4. Milestones timeline (mirrors app .ms-timeline layout) ── */
+.mock-ms-timeline {
+  background: #0c0e14;
+  border-radius: 10px;
+  padding: 12px 14px;
 }
-.mock-timeline-line {
+.mock-ms-axis {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: #3a3d4a;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.5px;
+  padding-left: 60px;
+  margin-bottom: 10px;
+}
+.mock-ms-row {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  margin-bottom: 4px;
+}
+.mock-ms-row:last-child { margin-bottom: 0; }
+.mock-ms-row-label {
+  width: 60px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #4a4d5a;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  flex-shrink: 0;
+}
+.mock-ms-row-track {
+  position: relative;
+  flex: 1;
+  height: 100%;
+}
+.mock-ms-line {
   position: absolute;
-  top: 36px;
-  left: 18px;
-  right: 18px;
+  top: 50%;
+  left: 0;
+  right: 0;
   height: 1px;
-  background: #2a2d3a;
-}
-.mock-milestone {
-  position: absolute;
-  top: 24px;
-  transform: translateX(-50%);
-  text-align: center;
-}
-.mock-milestone-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
   background: #1e2030;
+}
+.mock-ms-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #12141c;
   border: 2px solid #3a3d4a;
-  margin: 0 auto 6px;
-  position: relative;
-  z-index: 1;
+  z-index: 2;
 }
-.mock-milestone-dot.done { background: #4a85d6; border-color: #4a85d6; }
-.mock-milestone-dot.active {
-  background: #f5c542;
+.mock-ms-marker::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #3a3d4a;
+}
+.mock-ms-marker::after {
+  content: attr(data-label);
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  color: #8b8d9a;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.mock-ms-marker.done {
+  background: rgba(74, 133, 214, 0.2);
+  border-color: #4a85d6;
+}
+.mock-ms-marker.done::before { background: #4a85d6; }
+.mock-ms-marker.active {
+  background: rgba(245, 197, 66, 0.2);
   border-color: #f5c542;
-  box-shadow: 0 0 0 4px rgba(245, 197, 66, 0.2);
+  box-shadow: 0 0 0 4px rgba(245, 197, 66, 0.15);
 }
-.mock-milestone-label { font-size: 10px; font-weight: 600; color: #c8cad3; white-space: nowrap; }
-.mock-milestone-date  { font-size: 9px; color: #6b7185; font-family: 'JetBrains Mono', monospace; margin-top: 1px; }
+.mock-ms-marker.active::before { background: #f5c542; }
+.mock-ms-marker.active::after { color: #f5c542; }
+.mock-ms-entry {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.mock-ms-entry.bull { background: #10b981; }
+.mock-ms-entry.bear { background: #f43f5e; }
+.mock-ms-entry.neut { background: #94a3b8; }
+
 .mock-milestone-event {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(74, 133, 214, 0.08);
-  border: 1px solid rgba(74, 133, 214, 0.25);
+  background: rgba(245, 197, 66, 0.08);
+  border: 1px solid rgba(245, 197, 66, 0.25);
   border-radius: 8px;
   padding: 10px 12px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
-.mock-ms-icon {
-  width: 24px;
-  height: 24px;
+.mock-ms-icon-wrap {
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: rgba(16, 185, 129, 0.2);
-  color: #10b981;
+  background: rgba(245, 197, 66, 0.15);
+  color: #f5c542;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
   flex-shrink: 0;
 }
 .mock-ms-title { font-size: 13px; font-weight: 600; color: #e2e4ed; }
@@ -879,6 +979,64 @@ img {
   font-size: 13px;
   color: #84cc16;
   font-weight: 600;
+}
+
+/* Polymarket card (mirrors app .dash-poly-card) */
+.mock-poly-card {
+  background: #0c0e14;
+  border: 1px solid #1e2030;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mock-poly-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.mock-poly-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #c8cad3;
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+}
+.mock-poly-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 24px;
+  font-weight: 800;
+  color: #a78bfa;
+  line-height: 1;
+}
+.mock-poly-chart {
+  height: 32px;
+  margin: 2px 0;
+}
+.mock-poly-chart svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.mock-poly-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+}
+.mock-poly-change.up { color: #10b981; font-weight: 600; }
+.mock-poly-change.down { color: #f43f5e; font-weight: 600; }
+.mock-poly-range {
+  color: #4a4d5a;
+  font-size: 9px;
+  background: #13151e;
+  border: 1px solid #1e2030;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
 /* Responsive: stack on mobile */
