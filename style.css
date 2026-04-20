@@ -1146,6 +1146,40 @@ img {
   border-radius: 4px;
 }
 
+/* Mobile CTA swap — app itself is desktop-only, so on phones we relabel
+   the "Start Journaling" / "Launch App" CTAs to set expectations and add
+   a small hint below guiding users to bookmark the site. */
+.cta-mobile { display: none; }
+.cta-desktop { display: inline; }
+.desktop-hint { display: none; }
+
+@media (max-width: 768px) {
+  .cta-mobile { display: inline; }
+  .cta-desktop { display: none; }
+  .desktop-hint {
+    display: block;
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    max-width: 320px;
+  }
+  .desktop-hint strong {
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta-card .desktop-hint {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
 /* Responsive: stack on mobile */
 @media (max-width: 840px) {
   .showcase {
