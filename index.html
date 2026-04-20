@@ -28,15 +28,10 @@
     <nav class="nav" id="nav">
       <div class="nav-inner container">
         <a href="/" class="nav-logo">
-          <div class="nav-logo-icon">
-            <i data-lucide="book-open-text"></i>
-          </div>
           <span>Market Journal</span>
         </a>
         <div class="nav-links">
           <a href="#features">Features</a>
-          <a href="#how-it-works">How It Works</a>
-          <a href="#pricing">Pricing</a>
         </div>
         <a href="https://app.marketjournal.io" class="nav-cta">
           Launch App <span class="arrow">&rarr;</span>
@@ -47,8 +42,6 @@
       </div>
       <div class="nav-mobile" id="mobile-menu">
         <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#pricing">Pricing</a>
         <a href="https://app.marketjournal.io" class="nav-cta-mobile">Launch App &rarr;</a>
       </div>
     </nav>
@@ -101,194 +94,262 @@
           <h2 class="section-title">Everything you need to<br />journal smarter</h2>
           <p class="section-sub">A purpose-built toolkit for tracking your market thinking over time.</p>
         </div>
-        <div class="features-grid">
-          <div class="feature-card animate-on-scroll">
-            <div class="feature-icon feature-icon-green">
-              <i data-lucide="activity"></i>
-            </div>
-            <h3 class="feature-title">Sentiment Tracking</h3>
-            <p class="feature-desc">Tag entries as bullish, bearish, or neutral. Track how your sentiment evolves over time with visual indicators.</p>
-            <div class="feature-tags">
-              <span class="tag tag-green">Bullish</span>
-              <span class="tag tag-red">Bearish</span>
-              <span class="tag tag-muted">Neutral</span>
-            </div>
-          </div>
-          <div class="feature-card animate-on-scroll">
-            <div class="feature-icon feature-icon-blue">
-              <i data-lucide="layers"></i>
-            </div>
-            <h3 class="feature-title">Multi-Asset Journals</h3>
-            <p class="feature-desc">Organize entries by individual stocks or thematic portfolios. Cross-reference your thinking across positions.</p>
-            <div class="feature-pills">
-              <span class="pill">AAPL</span>
-              <span class="pill">NVDA</span>
-              <span class="pill">AI Theme</span>
-            </div>
-          </div>
-          <div class="feature-card animate-on-scroll">
-            <div class="feature-icon feature-icon-purple">
-              <i data-lucide="link"></i>
-            </div>
-            <h3 class="feature-title">Smart Embeds</h3>
-            <p class="feature-desc">Paste a tweet, Reddit post, or article URL &mdash; Market Journal automatically embeds the context alongside your notes.</p>
-            <div class="feature-embed-preview">
-              <div class="embed-bar"></div>
-              <div class="embed-lines">
-                <div class="embed-line" style="width:90%"></div>
-                <div class="embed-line" style="width:70%"></div>
-                <div class="embed-line" style="width:50%"></div>
-              </div>
-            </div>
-          </div>
-          <div class="feature-card animate-on-scroll">
-            <div class="feature-icon feature-icon-gold">
-              <i data-lucide="bar-chart-3"></i>
-            </div>
-            <h3 class="feature-title">Real-Time Data</h3>
-            <p class="feature-desc">Live stock prices, Fear &amp; Greed Index, and market indicators right in your dashboard.</p>
-            <div class="feature-ticker">
-              <div class="ticker-item">
-                <span class="ticker-symbol">SPY</span>
-                <span class="ticker-price">$542.18</span>
-                <span class="ticker-change ticker-up">+1.2%</span>
-              </div>
-              <div class="ticker-item">
-                <span class="ticker-symbol">QQQ</span>
-                <span class="ticker-price">$468.30</span>
-                <span class="ticker-change ticker-down">-0.4%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
-      <div class="container">
-        <div class="section-header animate-on-scroll">
-          <span class="section-tag">How It Works</span>
-          <h2 class="section-title">Start in minutes,<br />not hours</h2>
-          <p class="section-sub">Three simple steps to a better trading journal.</p>
+        <!-- 1. Sentiment Tracking -->
+        <div class="showcase animate-on-scroll">
+          <div class="showcase-text">
+            <div class="feature-icon feature-icon-green"><i data-lucide="activity"></i></div>
+            <h3 class="showcase-title">Sentiment Tracking</h3>
+            <p class="showcase-desc">Tag every entry bullish, bearish, or neutral. Visual cues make your conviction obvious at a glance — across a single entry or your whole history.</p>
+            <ul class="showcase-points">
+              <li>Color-coded left bar + tinted card background per sentiment</li>
+              <li>Aggregate sentiment score for each ticker</li>
+              <li>Filter your feed by sentiment with one click</li>
+            </ul>
+          </div>
+          <div class="showcase-visual">
+            <div class="mock-card">
+              <div class="mock-sentiment-strip">
+                <div class="mock-sentiment-bar">
+                  <span class="mock-bar-seg bull" style="flex:6"></span>
+                  <span class="mock-bar-seg neut" style="flex:2"></span>
+                  <span class="mock-bar-seg bear" style="flex:2"></span>
+                </div>
+                <span class="mock-sentiment-score">↑ 40%</span>
+              </div>
+              <div class="mock-entry bullish">
+                <span class="mock-entry-bar bull"></span>
+                <div class="mock-entry-body">
+                  <div class="mock-entry-meta"><span class="mock-entry-time">Apr 18 · 10:24am</span></div>
+                  <div class="mock-entry-text">Strong forward guidance + supply chain easing. Doubling down.</div>
+                </div>
+              </div>
+              <div class="mock-entry bearish">
+                <span class="mock-entry-bar bear"></span>
+                <div class="mock-entry-body">
+                  <div class="mock-entry-meta"><span class="mock-entry-time">Apr 14 · 2:08pm</span></div>
+                  <div class="mock-entry-text">Margin compression in the print. Need to reassess.</div>
+                </div>
+              </div>
+              <div class="mock-entry">
+                <span class="mock-entry-bar neut"></span>
+                <div class="mock-entry-body">
+                  <div class="mock-entry-meta"><span class="mock-entry-time">Apr 12 · 9:01am</span></div>
+                  <div class="mock-entry-text">Watching ahead of earnings. Mixed channel checks.</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="steps">
-          <div class="step animate-on-scroll">
-            <div class="step-number">1</div>
-            <div class="step-icon">
-              <i data-lucide="plus-circle"></i>
-            </div>
-            <h3 class="step-title">Add your tickers and themes</h3>
-            <p class="step-desc">Set up the stocks you follow and create thematic groups to organize your thinking.</p>
-          </div>
-          <div class="step-connector animate-on-scroll">
-            <div class="connector-line"></div>
-          </div>
-          <div class="step animate-on-scroll">
-            <div class="step-number">2</div>
-            <div class="step-icon">
-              <i data-lucide="pencil-line"></i>
-            </div>
-            <h3 class="step-title">Write journal entries with sentiment tags</h3>
-            <p class="step-desc">Capture your thesis, tag your sentiment, and embed supporting context from the web.</p>
-          </div>
-          <div class="step-connector animate-on-scroll">
-            <div class="connector-line"></div>
-          </div>
-          <div class="step animate-on-scroll">
-            <div class="step-number">3</div>
-            <div class="step-icon">
-              <i data-lucide="eye"></i>
-            </div>
-            <h3 class="step-title">Review your thesis over time</h3>
-            <p class="step-desc">Look back at how your thinking evolved. Spot patterns, learn from mistakes, and sharpen your edge.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-      <div class="container">
-        <div class="section-header animate-on-scroll">
-          <span class="section-tag">Pricing</span>
-          <h2 class="section-title">Simple pricing.<br />Start free.</h2>
-          <p class="section-sub">Everything you need to start journaling your market thesis.</p>
-        </div>
-        <div class="pricing-cards">
-          <div class="pricing-card pricing-card-free animate-on-scroll">
-            <div class="pricing-card-header">
-              <span class="pricing-plan">Free</span>
-              <div class="pricing-price">
-                <span class="pricing-amount">$0</span>
-                <span class="pricing-period">/ forever</span>
-              </div>
-              <p class="pricing-desc">Everything you need to start journaling your market thesis.</p>
-            </div>
-            <ul class="pricing-features">
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Unlimited journal entries</span>
-              </li>
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Real-time stock prices</span>
-              </li>
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Sentiment tracking</span>
-              </li>
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Smart embeds</span>
-              </li>
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Multi-asset journals</span>
-              </li>
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Fear &amp; Greed Index</span>
-              </li>
+        <!-- 2. Multi-Asset Journals -->
+        <div class="showcase showcase-reverse animate-on-scroll">
+          <div class="showcase-text">
+            <div class="feature-icon feature-icon-gold"><i data-lucide="layers"></i></div>
+            <h3 class="showcase-title">Multi-Asset Journals</h3>
+            <p class="showcase-desc">Track individual stocks <em>and</em> market themes side-by-side. Group tickers under a thesis, or zoom into a single name.</p>
+            <ul class="showcase-points">
+              <li>Per-ticker journals with live price context</li>
+              <li>Thematic portfolios (AI, rate cuts, crypto cycle…)</li>
+              <li>Seamlessly move between stocks and themes</li>
             </ul>
-            <a href="https://app.marketjournal.io" class="btn btn-primary btn-full">
-              Get Started Free
-            </a>
           </div>
-          <div class="pricing-card pricing-card-pro animate-on-scroll">
-            <div class="pricing-card-header">
-              <div class="pricing-badge">Coming Soon</div>
-              <span class="pricing-plan">Pro</span>
-              <div class="pricing-price">
-                <span class="pricing-amount pricing-amount-muted">TBD</span>
+          <div class="showcase-visual">
+            <div class="mock-sidebar">
+              <div class="mock-sb-group">
+                <div class="mock-sb-label">Stocks</div>
+                <div class="mock-sb-item active"><span class="mock-sb-sym">AAPL</span><span class="mock-sb-change up">+2.54%</span></div>
+                <div class="mock-sb-item"><span class="mock-sb-sym">NVDA</span><span class="mock-sb-change up">+1.43%</span></div>
+                <div class="mock-sb-item"><span class="mock-sb-sym">MSFT</span><span class="mock-sb-change up">+0.58%</span></div>
+                <div class="mock-sb-item"><span class="mock-sb-sym">TSLA</span><span class="mock-sb-change up">+3.41%</span></div>
+                <div class="mock-sb-item"><span class="mock-sb-sym">NFLX</span><span class="mock-sb-change down">-9.72%</span></div>
               </div>
-              <p class="pricing-desc">Advanced features for serious traders.</p>
+              <div class="mock-sb-group">
+                <div class="mock-sb-label">Themes</div>
+                <div class="mock-sb-item theme"><span class="mock-sb-sym">AI Revolution</span></div>
+                <div class="mock-sb-item theme"><span class="mock-sb-sym">Fed Rate Cuts</span></div>
+                <div class="mock-sb-item theme"><span class="mock-sb-sym">Crypto Cycle</span></div>
+              </div>
             </div>
-            <ul class="pricing-features pricing-features-muted">
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Everything in Free</span>
-              </li>
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Advanced analytics</span>
-              </li>
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Portfolio performance tracking</span>
-              </li>
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Export &amp; API access</span>
-              </li>
-              <li>
-                <i data-lucide="check" class="pricing-check"></i>
-                <span>Priority support</span>
-              </li>
+          </div>
+        </div>
+
+        <!-- 3. Smart Embeds -->
+        <div class="showcase animate-on-scroll">
+          <div class="showcase-text">
+            <div class="feature-icon feature-icon-purple"><i data-lucide="link"></i></div>
+            <h3 class="showcase-title">Smart Embeds</h3>
+            <p class="showcase-desc">Paste a link and we pull the full context alongside your note. Every entry stays self-contained, even if the source disappears.</p>
+            <ul class="showcase-points">
+              <li><strong>X / Twitter</strong> — tweet text, author, likes, photos</li>
+              <li><strong>Reddit</strong> — title, subreddit, upvotes, post body</li>
+              <li><strong>YouTube</strong> — inline video player with title & channel</li>
+              <li><strong>News articles</strong> — headline, source, description</li>
             </ul>
-            <button class="btn btn-outline btn-full" disabled>
-              Coming Soon
-            </button>
+          </div>
+          <div class="showcase-visual">
+            <div class="mock-card">
+              <div class="mock-tabs">
+                <span class="mock-tab active" data-source="twitter">@cnbc</span>
+                <span class="mock-tab" data-source="reddit">r/wallstreetbets</span>
+                <span class="mock-tab" data-source="news">Bloomberg</span>
+              </div>
+              <div class="mock-embed tweet">
+                <div class="mock-embed-header"><span class="mock-handle">@cnbc</span></div>
+                <div class="mock-embed-text">Apple shares jump after iPhone 16 demand estimates revised higher. Analysts raise price targets across the board.</div>
+                <div class="mock-embed-stats">♥ 4,219 · 🔁 1,032</div>
+              </div>
+              <div class="mock-link-row">
+                <span class="mock-link" data-source="twitter">↗ www.twitter.com/…</span>
+                <span class="mock-link" data-source="reddit">↗ www.reddit.com/…</span>
+                <span class="mock-link" data-source="news">↗ www.bloomberg.com/…</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Milestones -->
+        <div class="showcase showcase-reverse animate-on-scroll">
+          <div class="showcase-text">
+            <div class="feature-icon feature-icon-gold"><i data-lucide="flag"></i></div>
+            <h3 class="showcase-title">Milestones</h3>
+            <p class="showcase-desc">Pin the events that actually move your thesis — earnings, product launches, Fed decisions. Every journal entry gets plotted against the timeline.</p>
+            <ul class="showcase-points">
+              <li>Create milestones with custom dates</li>
+              <li>Entries auto-link to their surrounding milestones</li>
+              <li>Visual timeline showing thesis progression</li>
+            </ul>
+          </div>
+          <div class="showcase-visual">
+            <div class="mock-card">
+              <div class="mock-timeline">
+                <div class="mock-timeline-line"></div>
+                <div class="mock-milestone" style="left:8%">
+                  <div class="mock-milestone-dot done"></div>
+                  <div class="mock-milestone-label">Q4 Earnings</div>
+                  <div class="mock-milestone-date">Feb 1</div>
+                </div>
+                <div class="mock-milestone" style="left:38%">
+                  <div class="mock-milestone-dot done"></div>
+                  <div class="mock-milestone-label">iPhone 16 Launch</div>
+                  <div class="mock-milestone-date">Mar 12</div>
+                </div>
+                <div class="mock-milestone" style="left:68%">
+                  <div class="mock-milestone-dot active"></div>
+                  <div class="mock-milestone-label">Fed Decision</div>
+                  <div class="mock-milestone-date">Apr 22</div>
+                </div>
+                <div class="mock-milestone" style="left:92%">
+                  <div class="mock-milestone-dot"></div>
+                  <div class="mock-milestone-label">Q1 Earnings</div>
+                  <div class="mock-milestone-date">May 3</div>
+                </div>
+              </div>
+              <div class="mock-milestone-event">
+                <span class="mock-ms-icon">✓</span>
+                <div class="mock-ms-body">
+                  <div class="mock-ms-title">iPhone 16 Launch</div>
+                  <div class="mock-ms-sub">Completed · 12 journal entries linked</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Insights -->
+        <div class="showcase animate-on-scroll">
+          <div class="showcase-text">
+            <div class="feature-icon feature-icon-blue"><i data-lucide="sparkles"></i></div>
+            <h3 class="showcase-title">Insights</h3>
+            <p class="showcase-desc">See patterns in your journaling you'd never spot scrolling. Activity heatmaps, sentiment breakdowns by tag, and price overlays with your entries dotted on top.</p>
+            <ul class="showcase-points">
+              <li>GitHub-style activity heatmap</li>
+              <li>Sentiment distribution by custom tag</li>
+              <li>Price chart with your entries plotted as dots</li>
+            </ul>
+          </div>
+          <div class="showcase-visual">
+            <div class="mock-card">
+              <div class="mock-card-label">ACTIVITY</div>
+              <div class="mock-heatmap">
+                <span></span><span class="a1"></span><span></span><span class="a2"></span><span class="a3"></span><span></span><span class="a1"></span><span class="a2"></span><span class="a4"></span><span class="a2"></span><span></span><span class="a1"></span><span class="a3"></span><span></span><span class="a2"></span><span class="a1"></span><span></span><span class="a3"></span>
+                <span class="a1"></span><span></span><span class="a2"></span><span class="a1"></span><span></span><span class="a3"></span><span class="a4"></span><span class="a2"></span><span class="a1"></span><span></span><span class="a2"></span><span class="a3"></span><span></span><span class="a1"></span><span></span><span class="a2"></span><span class="a4"></span><span></span>
+                <span></span><span class="a3"></span><span class="a2"></span><span class="a1"></span><span class="a2"></span><span></span><span class="a1"></span><span class="a4"></span><span class="a2"></span><span class="a3"></span><span></span><span class="a2"></span><span class="a1"></span><span></span><span class="a3"></span><span class="a2"></span><span></span><span class="a1"></span>
+                <span class="a2"></span><span class="a1"></span><span></span><span class="a3"></span><span></span><span class="a2"></span><span class="a4"></span><span class="a1"></span><span></span><span class="a2"></span><span class="a3"></span><span></span><span class="a2"></span><span class="a4"></span><span></span><span class="a1"></span><span class="a2"></span><span></span>
+                <span></span><span class="a2"></span><span class="a1"></span><span></span><span class="a3"></span><span class="a2"></span><span class="a1"></span><span></span><span class="a2"></span><span class="a4"></span><span></span><span class="a1"></span><span class="a3"></span><span class="a2"></span><span></span><span class="a1"></span><span></span><span class="a2"></span>
+                <span class="a1"></span><span></span><span class="a3"></span><span class="a2"></span><span class="a1"></span><span></span><span class="a4"></span><span class="a2"></span><span class="a3"></span><span></span><span class="a1"></span><span class="a2"></span><span></span><span class="a3"></span><span class="a1"></span><span></span><span class="a2"></span><span class="a4"></span>
+                <span class="a3"></span><span class="a2"></span><span></span><span class="a1"></span><span class="a2"></span><span class="a4"></span><span></span><span class="a2"></span><span class="a1"></span><span class="a3"></span><span></span><span class="a2"></span><span class="a1"></span><span></span><span class="a2"></span><span class="a3"></span><span></span><span class="a1"></span>
+              </div>
+              <div class="mock-card-label" style="margin-top:14px">SENTIMENT BY TAG</div>
+              <div class="mock-tag-stats">
+                <div class="mock-tag-row">
+                  <span class="mock-tag-name">#earnings</span>
+                  <div class="mock-tag-bar">
+                    <span class="mock-tag-seg bull" style="flex:7"></span>
+                    <span class="mock-tag-seg neut" style="flex:2"></span>
+                    <span class="mock-tag-seg bear" style="flex:1"></span>
+                  </div>
+                  <span class="mock-tag-count">10</span>
+                </div>
+                <div class="mock-tag-row">
+                  <span class="mock-tag-name">#macro</span>
+                  <div class="mock-tag-bar">
+                    <span class="mock-tag-seg bull" style="flex:3"></span>
+                    <span class="mock-tag-seg neut" style="flex:4"></span>
+                    <span class="mock-tag-seg bear" style="flex:3"></span>
+                  </div>
+                  <span class="mock-tag-count">10</span>
+                </div>
+                <div class="mock-tag-row">
+                  <span class="mock-tag-name">#china</span>
+                  <div class="mock-tag-bar">
+                    <span class="mock-tag-seg bull" style="flex:2"></span>
+                    <span class="mock-tag-seg neut" style="flex:3"></span>
+                    <span class="mock-tag-seg bear" style="flex:5"></span>
+                  </div>
+                  <span class="mock-tag-count">10</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Mission Control -->
+        <div class="showcase showcase-reverse animate-on-scroll">
+          <div class="showcase-text">
+            <div class="feature-icon feature-icon-green"><i data-lucide="radar"></i></div>
+            <h3 class="showcase-title">Mission Control</h3>
+            <p class="showcase-desc">One dashboard for the whole market landscape. Your watchlist, a live S&amp;P 500 heatmap, Fear &amp; Greed, macro indicators, prediction markets, and economic data — all in one view.</p>
+            <ul class="showcase-points">
+              <li>Customize what appears in your feed and ticker tape</li>
+              <li>Live heatmap sized by weight, colored by daily change</li>
+              <li>Fear &amp; Greed, VIX, crude, gold, rates, FRED data</li>
+            </ul>
+          </div>
+          <div class="showcase-visual">
+            <div class="mock-card mock-mission">
+              <div class="mock-tape">
+                <span class="mock-tape-item"><span class="mock-tape-sym">AAPL</span><span class="up">+2.54%</span></span>
+                <span class="mock-tape-item"><span class="mock-tape-sym">NVDA</span><span class="up">+1.43%</span></span>
+                <span class="mock-tape-item"><span class="mock-tape-sym">TSLA</span><span class="up">+3.41%</span></span>
+                <span class="mock-tape-item"><span class="mock-tape-sym">NFLX</span><span class="down">-9.72%</span></span>
+                <span class="mock-tape-item"><span class="mock-tape-sym">VIX</span><span class="down">-4.2%</span></span>
+              </div>
+              <div class="mock-card-label">S&amp;P 500 HEATMAP</div>
+              <div class="mock-mini-heatmap">
+                <div class="mock-hm-tile bull-lg" style="flex:4"><span>AAPL</span><span class="tiny">+2.54%</span></div>
+                <div class="mock-hm-tile bull-md" style="flex:3"><span>MSFT</span><span class="tiny">+0.58%</span></div>
+                <div class="mock-hm-tile bull-sm" style="flex:2"><span>NVDA</span><span class="tiny">+1.43%</span></div>
+                <div class="mock-hm-tile bear-sm" style="flex:2"><span>ORCL</span><span class="tiny">-2.09%</span></div>
+                <div class="mock-hm-tile bull-md" style="flex:2"><span>GOOG</span><span class="tiny">+1.93%</span></div>
+                <div class="mock-hm-tile bear-lg" style="flex:2"><span>XOM</span><span class="tiny">-3.63%</span></div>
+                <div class="mock-hm-tile bull-md" style="flex:2"><span>META</span><span class="tiny">+1.23%</span></div>
+              </div>
+              <div class="mock-fg-row">
+                <div class="mock-fg-val">72</div>
+                <div class="mock-fg-label">Fear &amp; Greed<br /><span>Greed</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -313,9 +374,6 @@
         <div class="footer-inner">
           <div class="footer-brand">
             <a href="/" class="footer-logo">
-              <div class="nav-logo-icon">
-                <i data-lucide="book-open-text"></i>
-              </div>
               <span>Market Journal</span>
             </a>
             <p class="footer-tagline">Built for traders, by traders.</p>
@@ -324,7 +382,6 @@
             <div class="footer-col">
               <h4 class="footer-col-title">Product</h4>
               <a href="#features">Features</a>
-              <a href="#pricing">Pricing</a>
               <a href="https://app.marketjournal.io">Launch App</a>
             </div>
             <div class="footer-col">
