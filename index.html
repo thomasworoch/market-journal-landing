@@ -94,23 +94,41 @@
         <div class="showcase animate-on-scroll">
           <div class="showcase-text">
             <div class="feature-icon feature-icon-green"><i data-lucide="activity"></i></div>
-            <h3 class="showcase-title">Sentiment Tracking</h3>
-            <p class="showcase-desc">Tag every entry bullish, bearish, or neutral. Visual cues make your conviction obvious at a glance — across a single entry or your whole thesis over time.</p>
+            <h3 class="showcase-title">Sentiment Tracking <span class="showcase-badge"><i data-lucide="sparkles" style="width:11px;height:11px"></i> AI</span></h3>
+            <p class="showcase-desc">Tag every entry bullish, bearish, or neutral. Visual cues make your conviction obvious at a glance — and our AI synthesizes <em>why</em> sentiment is where it is, pulling from your entries, tags, and linked milestones.</p>
             <ul class="showcase-points">
               <li>Color-coded left bar + tinted card background per sentiment</li>
-              <li>Aggregate sentiment score for each ticker</li>
+              <li>Aggregate sentiment score over your chosen lookback range</li>
+              <li><strong>AI summary</strong> explains what's driving the sentiment shift</li>
               <li>Filter your feed by sentiment with one click</li>
             </ul>
           </div>
           <div class="showcase-visual">
             <div class="mock-card">
-              <div class="mock-sentiment-strip">
+              <div class="mock-sentiment-strip clickable">
+                <span class="mock-sentiment-chevron open">›</span>
                 <div class="mock-sentiment-bar">
                   <span class="mock-bar-seg bull" style="flex:7"></span>
                   <span class="mock-bar-seg neut" style="flex:2"></span>
                   <span class="mock-bar-seg bear" style="flex:1"></span>
                 </div>
                 <span class="mock-sentiment-score">↑ 60%</span>
+                <span class="mock-sentiment-range">30D</span>
+              </div>
+              <div class="mock-ai-summary">
+                <div class="mock-ai-header">
+                  <span class="mock-ai-icon">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.7L19.6 10l-5.7 1.9L12 17.6l-1.9-5.7L4.4 10l5.7-1.3z"/></svg>
+                  </span>
+                  <span class="mock-ai-title">AI Summary</span>
+                  <span class="mock-ai-model">Qwen 3</span>
+                </div>
+                <ul class="mock-ai-bullets">
+                  <li>Robotaxi rollout in Austin has driven conviction — geofence expanded 3x in the past 4 weeks, fueling 12 bullish entries.</li>
+                  <li>FSD v13 unsupervised timeline slippage flagged in 4 bearish entries last week, reflecting margin-risk concerns around capex.</li>
+                  <li>Optimus V3 reveal pushed to Q3; sentiment held despite the delay, with entries focused on dexterity benchmarks vs. Figure.</li>
+                </ul>
+                <div class="mock-ai-meta">Generated 2h ago · 30D range (18 entries)</div>
               </div>
               <div class="mock-entry bullish">
                 <span class="mock-entry-bar bull"></span>
