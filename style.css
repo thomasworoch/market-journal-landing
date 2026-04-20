@@ -1157,7 +1157,8 @@ img {
 
 @media (max-width: 768px) {
   .hero-actions .btn-primary,
-  .cta-card .btn-primary {
+  .cta-card .btn-primary,
+  .desktop-only-link {
     display: none;
   }
   .desktop-hint {
