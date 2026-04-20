@@ -1146,23 +1146,24 @@ img {
   border-radius: 4px;
 }
 
-/* Mobile CTA swap — app itself is desktop-only, so on phones we relabel
-   the "Start Journaling" / "Launch App" CTAs to set expectations and add
-   a small hint below guiding users to bookmark the site. */
-.cta-mobile { display: none; }
-.cta-desktop { display: inline; }
+/* Mobile CTA handling — the app itself is desktop-only, so the
+   'Start Journaling' / 'Launch App' buttons would dead-end on mobile.
+   We hide the buttons entirely on small screens and show a brief
+   bookmark-for-later hint in their place. */
 .desktop-hint { display: none; }
 
 @media (max-width: 768px) {
-  .cta-mobile { display: inline; }
-  .cta-desktop { display: none; }
+  .hero-actions .btn-primary,
+  .cta-card .btn-primary {
+    display: none;
+  }
   .desktop-hint {
     display: block;
-    margin-top: 14px;
-    font-size: 13px;
+    margin-top: 8px;
+    font-size: 14px;
     line-height: 1.5;
     color: var(--text-muted);
-    max-width: 320px;
+    max-width: 360px;
   }
   .desktop-hint strong {
     color: var(--text-secondary);
