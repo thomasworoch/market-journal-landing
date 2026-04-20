@@ -523,6 +523,9 @@ img {
   color: var(--text);
   font-style: italic;
   font-weight: 500;
+  /* Italic glyphs slant right and can visually kiss the next word.
+     A hair of right padding restores the visual space. */
+  padding-right: 2px;
 }
 .showcase-points {
   list-style: none;
