@@ -1172,6 +1172,38 @@ img {
   height: 170px;
   display: block;
 }
+
+/* Entry dots overlaid on the chart. Rendered as HTML divs so they stay
+   perfectly circular regardless of the SVG's stretched aspect ratio.
+   Size scales with entries-that-day, mirroring the real .chart-dot
+   (minSize 14 → maxSize 22 in-app, scaled ~10–18px here). */
+.mock-chart-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 170px;
+  pointer-events: none;
+}
+.mock-chart-entry-dot {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #0c0e14;
+  box-sizing: border-box;
+}
+.mock-chart-entry-dot.bull {
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.55);
+}
+.mock-chart-entry-dot.neut {
+  background: #94a3b8;
+  box-shadow: 0 0 5px rgba(148, 163, 184, 0.4);
+}
+.mock-chart-entry-dot.bear {
+  background: #f43f5e;
+  box-shadow: 0 0 6px rgba(244, 63, 94, 0.55);
+}
 .mock-chart-x-axis {
   display: flex;
   justify-content: space-between;
