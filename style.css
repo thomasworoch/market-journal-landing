@@ -980,6 +980,129 @@ img {
 .mock-ms-title { font-size: 13px; font-weight: 600; color: #e2e4ed; }
 .mock-ms-sub   { font-size: 11px; color: #6b7185; margin-top: 1px; }
 
+/* ── Milestone showcase (reframed around accountability) ── */
+.mock-ms-card-lp {
+  background: #0c0e14;
+  border: 1px solid #1a1d27;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+.mock-ms-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.mock-ms-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mock-ms-card-label-lp {
+  font-size: 15px;
+  font-weight: 700;
+  color: #e2e4ed;
+}
+.mock-ms-status-tag-lp {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #f5a623;
+  background: rgba(245, 166, 35, 0.12);
+}
+.mock-ms-count-lp {
+  font-size: 11px;
+  font-weight: 600;
+  color: #7a7d8a;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+.mock-ms-progress-lp {
+  height: 4px;
+  background: #1a1d27;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.mock-ms-progress-fill-lp {
+  height: 100%;
+  background: #f5c542;
+  opacity: 0.8;
+}
+.mock-ms-days-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #5a5d6a;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Event cards in the landing mock */
+.mock-ms-event-lp {
+  border-left: 3px solid;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+.mock-ms-event-lp:last-child { margin-bottom: 0; }
+.mock-ms-event-lp.delay {
+  background: rgba(245, 166, 35, 0.06);
+  border-left-color: #f5a623;
+}
+.mock-ms-event-lp.update {
+  background: rgba(147, 112, 219, 0.06);
+  border-left-color: #9370db;
+}
+.mock-ms-event-hdr {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.mock-ms-event-badge-lp {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.mock-ms-event-badge-lp.delay {
+  color: #f5a623;
+  background: rgba(245, 166, 35, 0.15);
+}
+.mock-ms-event-badge-lp.update {
+  color: #9370db;
+  background: rgba(147, 112, 219, 0.15);
+}
+.mock-ms-event-link-lp {
+  font-size: 10px;
+  font-weight: 600;
+  color: #f5c542;
+  background: rgba(245, 197, 66, 0.12);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.mock-ms-event-body-lp {
+  font-size: 13px;
+  color: #c8cad3;
+  line-height: 1.45;
+  margin-bottom: 4px;
+}
+.mock-ms-event-body-lp strong { color: #e8eaf0; font-weight: 600; }
+.mock-ms-event-note-lp {
+  font-size: 12px;
+  color: #7a7d8a;
+  line-height: 1.45;
+}
+
 /* ── 5. Insights (heatmap + tag bars) ── */
 .mock-heatmap {
   display: grid;

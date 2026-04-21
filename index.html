@@ -235,58 +235,56 @@
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
             </div>
             <h3 class="showcase-title">Milestones</h3>
-            <p class="showcase-desc">Pin the events that actually move your thesis — earnings, product launches, Fed decisions. Every journal entry gets plotted against the timeline, so you can see how your conviction held up at each beat.</p>
+            <p class="showcase-desc">Track the commitments companies make — product launches, new plants, acquisitions, KPI targets. Link entries as news breaks and log delays, updates, and completions. See exactly what they delivered vs. what they promised.</p>
             <ul class="showcase-points">
-              <li>Create milestones with custom dates</li>
-              <li>Entries auto-link to their surrounding milestone</li>
-              <li>Timeline view shows thesis progression at a glance</li>
+              <li>Create a milestone with a target date and deadline</li>
+              <li>Link entries to it as news unfolds</li>
+              <li>Record <strong>delays</strong>, <strong>updates</strong>, <strong>completions</strong>, or <strong>abandonments</strong> — every change saved as a permanent record</li>
+              <li>Hold companies — and yourself — accountable</li>
             </ul>
           </div>
           <div class="showcase-visual">
             <div class="mock-card">
-              <div class="mock-ms-timeline">
-                <div class="mock-ms-axis">
-                  <span class="mock-ms-tick">FEB</span>
-                  <span class="mock-ms-tick">MAR</span>
-                  <span class="mock-ms-tick">APR</span>
-                  <span class="mock-ms-tick">MAY</span>
-                  <span class="mock-ms-tick">JUN</span>
-                </div>
-                <div class="mock-ms-row">
-                  <div class="mock-ms-row-label">MILESTONES</div>
-                  <div class="mock-ms-row-track">
-                    <div class="mock-ms-line"></div>
-                    <div class="mock-ms-marker done" style="left:8%" data-label="Q4 Earnings"></div>
-                    <div class="mock-ms-marker done" style="left:30%" data-label="FSD v13 Rollout"></div>
-                    <div class="mock-ms-marker active" style="left:54%" data-label="Robotaxi Launch"></div>
-                    <div class="mock-ms-marker" style="left:78%" data-label="Optimus V3 Unveil"></div>
-                    <div class="mock-ms-marker" style="left:94%" data-label="Q2 Earnings"></div>
+              <!-- Active milestone card -->
+              <div class="mock-ms-card-lp delayed">
+                <div class="mock-ms-card-row">
+                  <div class="mock-ms-card-title-row">
+                    <span class="mock-ms-card-label-lp">Robotaxi Launch</span>
+                    <span class="mock-ms-status-tag-lp">Delayed</span>
                   </div>
+                  <span class="mock-ms-count-lp">3 events</span>
                 </div>
-                <div class="mock-ms-row">
-                  <div class="mock-ms-row-label">ENTRIES</div>
-                  <div class="mock-ms-row-track">
-                    <span class="mock-ms-entry bull" style="left:6%"></span>
-                    <span class="mock-ms-entry bear" style="left:14%"></span>
-                    <span class="mock-ms-entry bull" style="left:22%"></span>
-                    <span class="mock-ms-entry bull" style="left:28%"></span>
-                    <span class="mock-ms-entry neut" style="left:34%"></span>
-                    <span class="mock-ms-entry bull" style="left:42%"></span>
-                    <span class="mock-ms-entry bear" style="left:48%"></span>
-                    <span class="mock-ms-entry bull" style="left:52%"></span>
-                    <span class="mock-ms-entry bull" style="left:56%"></span>
-                    <span class="mock-ms-entry bull" style="left:62%"></span>
-                    <span class="mock-ms-entry neut" style="left:70%"></span>
-                  </div>
+                <div class="mock-ms-progress-lp">
+                  <div class="mock-ms-progress-fill-lp" style="width:45%"></div>
+                </div>
+                <div class="mock-ms-days-row">
+                  <span>Created Apr 18, 2026</span>
+                  <span>Target: Jul 15, 2026</span>
                 </div>
               </div>
-              <div class="mock-milestone-event">
-                <span class="mock-ms-icon-wrap">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
-                </span>
-                <div class="mock-ms-body">
-                  <div class="mock-ms-title">Robotaxi Launch</div>
-                  <div class="mock-ms-sub">Active · 8 journal entries linked</div>
+
+              <!-- Event: Delay -->
+              <div class="mock-ms-event-lp delay">
+                <div class="mock-ms-event-hdr">
+                  <span class="mock-ms-event-badge-lp delay">⏱ Delay</span>
+                  <span class="mock-ms-event-link-lp">◎ Robotaxi Launch</span>
+                </div>
+                <div class="mock-ms-event-body-lp">
+                  Deadline moved to <strong>Jul 15, 2026</strong> (was Dec 31, 2025)
+                </div>
+                <div class="mock-ms-event-note-lp">
+                  Pushed ~2 quarters — FSD v13 timeline slipping per Q1 call.
+                </div>
+              </div>
+
+              <!-- Event: Update -->
+              <div class="mock-ms-event-lp update">
+                <div class="mock-ms-event-hdr">
+                  <span class="mock-ms-event-badge-lp update">✎ Update</span>
+                  <span class="mock-ms-event-link-lp">◎ Robotaxi Launch</span>
+                </div>
+                <div class="mock-ms-event-body-lp">
+                  Austin geofence expanded from 20 → 55 sq mi
                 </div>
               </div>
             </div>
