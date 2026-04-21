@@ -34,9 +34,7 @@
           <a href="#features">Features</a>
         </div>
         <a href="https://app.marketjournal.io" class="nav-cta">
-          <span class="cta-desktop">Launch App</span>
-          <span class="cta-mobile">Try on desktop</span>
-          <span class="arrow">&rarr;</span>
+          Try Now <span class="arrow">&rarr;</span>
         </a>
         <button class="nav-mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
           <i data-lucide="menu"></i>
@@ -65,8 +63,7 @@
         </p>
         <div class="hero-actions">
           <a href="https://app.marketjournal.io" class="btn btn-primary btn-lg">
-            <span class="cta-desktop">Start Journaling</span>
-            <span class="cta-mobile">Try on desktop &rarr;</span>
+            Try Now &rarr;
           </a>
           <p class="desktop-hint">Bookmark <strong>marketjournal.io</strong> — the full app is optimized for desktop.</p>
         </div>
@@ -296,26 +293,80 @@
           <div class="showcase-text">
             <div class="feature-icon feature-icon-blue"><i data-lucide="sparkles"></i></div>
             <h3 class="showcase-title">Insights</h3>
-            <p class="showcase-desc">See patterns in your journaling you'd never spot scrolling. Activity heatmaps, sentiment breakdowns by tag, and price overlays with your entries dotted on top.</p>
+            <p class="showcase-desc">See patterns you'd miss scrolling. Every journal entry overlays directly onto the price chart, so you can see exactly where your conviction held up — or didn't.</p>
             <ul class="showcase-points">
-              <li>GitHub-style activity heatmap</li>
-              <li>Sentiment distribution by custom tag</li>
-              <li>Price chart with your entries plotted as dots</li>
+              <li><strong>Price chart</strong> with every entry plotted as a sentiment-colored dot</li>
+              <li>Sentiment distribution broken out by any tag</li>
+              <li>Activity heatmap showing when you journal most</li>
             </ul>
           </div>
           <div class="showcase-visual">
             <div class="mock-card">
-              <div class="mock-card-label">ACTIVITY</div>
-              <div class="mock-heatmap">
-                <span></span><span class="a1"></span><span></span><span class="a2"></span><span class="a3"></span><span></span><span class="a1"></span><span class="a2"></span><span class="a4"></span><span class="a2"></span><span></span><span class="a1"></span><span class="a3"></span><span></span><span class="a2"></span><span class="a1"></span><span></span><span class="a3"></span>
-                <span class="a1"></span><span></span><span class="a2"></span><span class="a1"></span><span></span><span class="a3"></span><span class="a4"></span><span class="a2"></span><span class="a1"></span><span></span><span class="a2"></span><span class="a3"></span><span></span><span class="a1"></span><span></span><span class="a2"></span><span class="a4"></span><span></span>
-                <span></span><span class="a3"></span><span class="a2"></span><span class="a1"></span><span class="a2"></span><span></span><span class="a1"></span><span class="a4"></span><span class="a2"></span><span class="a3"></span><span></span><span class="a2"></span><span class="a1"></span><span></span><span class="a3"></span><span class="a2"></span><span></span><span class="a1"></span>
-                <span class="a2"></span><span class="a1"></span><span></span><span class="a3"></span><span></span><span class="a2"></span><span class="a4"></span><span class="a1"></span><span></span><span class="a2"></span><span class="a3"></span><span></span><span class="a2"></span><span class="a4"></span><span></span><span class="a1"></span><span class="a2"></span><span></span>
-                <span></span><span class="a2"></span><span class="a1"></span><span></span><span class="a3"></span><span class="a2"></span><span class="a1"></span><span></span><span class="a2"></span><span class="a4"></span><span></span><span class="a1"></span><span class="a3"></span><span class="a2"></span><span></span><span class="a1"></span><span></span><span class="a2"></span>
-                <span class="a1"></span><span></span><span class="a3"></span><span class="a2"></span><span class="a1"></span><span></span><span class="a4"></span><span class="a2"></span><span class="a3"></span><span></span><span class="a1"></span><span class="a2"></span><span></span><span class="a3"></span><span class="a1"></span><span></span><span class="a2"></span><span class="a4"></span>
-                <span class="a3"></span><span class="a2"></span><span></span><span class="a1"></span><span class="a2"></span><span class="a4"></span><span></span><span class="a2"></span><span class="a1"></span><span class="a3"></span><span></span><span class="a2"></span><span class="a1"></span><span></span><span class="a2"></span><span class="a3"></span><span></span><span class="a1"></span>
+              <!-- Price chart with sentiment-colored entry dots overlaid -->
+              <div class="mock-chart-header">
+                <div class="mock-chart-info">
+                  <span class="mock-chart-ticker">TSLA</span>
+                  <span class="mock-chart-name">Tesla Inc.</span>
+                </div>
+                <div class="mock-chart-price-group">
+                  <span class="mock-chart-value">$352.18</span>
+                  <span class="mock-chart-change down">▼ 15.2% (1M)</span>
+                </div>
               </div>
-              <div class="mock-card-label" style="margin-top:14px">SENTIMENT BY TAG</div>
+              <div class="mock-chart-ranges">
+                <span class="mock-chart-range">1D</span>
+                <span class="mock-chart-range">1W</span>
+                <span class="mock-chart-range active">1M</span>
+                <span class="mock-chart-range">3M</span>
+                <span class="mock-chart-range">1Y</span>
+              </div>
+              <div class="mock-chart-wrap">
+                <svg class="mock-chart-svg" viewBox="0 0 400 170" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="priceGradient" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Faint gridlines -->
+                  <line x1="0" y1="40" x2="400" y2="40" stroke="#1a1d27" stroke-width="1" />
+                  <line x1="0" y1="90" x2="400" y2="90" stroke="#1a1d27" stroke-width="1" />
+                  <line x1="0" y1="140" x2="400" y2="140" stroke="#1a1d27" stroke-width="1" />
+                  <!-- Price area fill -->
+                  <path d="M 10 28 L 40 34 L 70 40 L 100 54 L 130 58 L 160 70 L 190 85 L 220 92 L 250 108 L 280 114 L 310 124 L 340 134 L 370 140 L 390 146 L 390 170 L 10 170 Z" fill="url(#priceGradient)"/>
+                  <!-- Price line (declining) -->
+                  <path d="M 10 28 L 40 34 L 70 40 L 100 54 L 130 58 L 160 70 L 190 85 L 220 92 L 250 108 L 280 114 L 310 124 L 340 134 L 370 140 L 390 146" stroke="#f43f5e" stroke-width="1.8" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+                  <!-- Entry dots overlaid on the chart.
+                       Sentiment colors: #10b981 bullish, #94a3b8 neutral, #f43f5e bearish -->
+                  <circle cx="30" cy="32" r="5" fill="#10b981" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="62" cy="38" r="5" fill="#10b981" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="95" cy="52" r="5" fill="#10b981" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="125" cy="60" r="5" fill="#10b981" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="155" cy="72" r="5" fill="#94a3b8" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="185" cy="86" r="5" fill="#10b981" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="215" cy="94" r="5" fill="#10b981" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="245" cy="106" r="5" fill="#f43f5e" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="275" cy="116" r="5" fill="#10b981" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="305" cy="122" r="5" fill="#10b981" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="340" cy="132" r="5" fill="#10b981" stroke="#0c0e14" stroke-width="2"/>
+                  <circle cx="375" cy="142" r="5" fill="#10b981" stroke="#0c0e14" stroke-width="2"/>
+                </svg>
+                <div class="mock-chart-x-axis">
+                  <span>Mar 19</span>
+                  <span>Apr 2</span>
+                  <span>Apr 16</span>
+                </div>
+              </div>
+              <div class="mock-chart-legend">
+                <span class="mock-chart-dot bull"></span>
+                <span>9 bullish</span>
+                <span class="mock-chart-dot neut"></span>
+                <span>1 neutral</span>
+                <span class="mock-chart-dot bear"></span>
+                <span>1 bearish · price −15.2%</span>
+              </div>
+
+              <div class="mock-card-label" style="margin-top:16px">SENTIMENT BY TAG</div>
               <div class="mock-tag-stats">
                 <div class="mock-tag-row">
                   <span class="mock-tag-name">#robotaxi</span>
@@ -422,8 +473,7 @@
           <h2 class="cta-title">Ready to journal smarter?</h2>
           <p class="cta-desc">Join investors who track their thesis, not just their trades.</p>
           <a href="https://app.marketjournal.io" class="btn btn-primary btn-lg">
-            <span class="cta-desktop">Start Journaling</span>
-            <span class="cta-mobile">Try on desktop &rarr;</span>
+            Try Now &rarr;
           </a>
           <p class="desktop-hint">Optimized for desktop. Save <strong>marketjournal.io</strong> for when you're at a computer.</p>
         </div>

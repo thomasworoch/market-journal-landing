@@ -1104,6 +1104,104 @@ img {
 }
 
 /* ── 5. Insights (heatmap + tag bars) ── */
+/* ── Insights: Price chart with sentiment-colored entry dots ── */
+.mock-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+.mock-chart-info {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.mock-chart-ticker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #e2e4ed;
+}
+.mock-chart-name {
+  font-size: 12px;
+  color: #6b7185;
+}
+.mock-chart-price-group {
+  text-align: right;
+}
+.mock-chart-value {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e2e4ed;
+  line-height: 1.1;
+}
+.mock-chart-change {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+}
+.mock-chart-change.down { color: #f43f5e; }
+.mock-chart-change.up { color: #10b981; }
+
+.mock-chart-ranges {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+.mock-chart-range {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 4px;
+  color: #5a5d6a;
+  background: transparent;
+  border: 1px solid transparent;
+  font-family: 'JetBrains Mono', monospace;
+}
+.mock-chart-range.active {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #2a2d3a;
+  color: #c8cad3;
+}
+
+.mock-chart-wrap { position: relative; }
+.mock-chart-svg {
+  width: 100%;
+  height: 170px;
+  display: block;
+}
+.mock-chart-x-axis {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: #4a4d5a;
+  padding: 4px 0 0;
+}
+
+.mock-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: #6b7185;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #1a1d27;
+  flex-wrap: wrap;
+}
+.mock-chart-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.mock-chart-dot.bull { background: #10b981; }
+.mock-chart-dot.neut { background: #94a3b8; }
+.mock-chart-dot.bear { background: #f43f5e; }
+
 .mock-heatmap {
   display: grid;
   grid-template-columns: repeat(18, 1fr);
