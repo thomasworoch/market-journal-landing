@@ -1,3 +1,8 @@
+// Vercel Web Analytics — page views + visitor counts.
+// Auto-tracks on production; skipped in dev.
+import { inject } from '@vercel/analytics';
+inject();
+
 // ===== Initialize Lucide Icons =====
 document.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) {
