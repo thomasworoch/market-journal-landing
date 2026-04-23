@@ -1,6 +1,6 @@
 // Vercel Web Analytics — page views + visitor counts.
 // Auto-tracks on production; skipped in dev.
-import { inject } from '@vercel/analytics';
+import { inject, track } from '@vercel/analytics';
 inject();
 
 // ===== Initialize Lucide Icons =====
@@ -13,7 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileMenu();
   initSmoothScroll();
+  initCTATracking();
 });
+
+// ===== CTA Click Tracking =====
+// Every "Try Now for Free" / "Launch App" button gets a data-cta
+// attribute labeling its placement (navbar, hero, bottom-cta, footer).
+// On click we fire a Vercel Analytics custom event so we can see CTR
+// per placement in the dashboard — clicks show up under "Events" with
+// the location as a property.
+function initCTATracking() {
+  document.querySelectorAll('[data-cta]').forEach((link) => {
+    link.addEventListener('click', () => {
+      track('cta_clicked', { location: link.dataset.cta });
+    });
+  });
+}
 
 // ===== Scroll Animations (IntersectionObserver) =====
 function initScrollAnimations() {
