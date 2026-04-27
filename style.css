@@ -389,7 +389,11 @@ img {
 
 .hero-carousel {
   width: 100%;
-  max-width: 1080px;
+  /* Wider than the surrounding .container (1140px) on purpose — the
+     screenshot is the focal element, and breathing room beyond the
+     headline width makes it feel like the product is "stepping forward"
+     out of the page. */
+  max-width: 1320px;
   margin: 80px auto 0;
   position: relative;
 }
@@ -408,15 +412,16 @@ img {
     0 0 0 1px rgba(255, 255, 255, 0.02) inset;
 }
 
-/* macOS-style window chrome — three traffic-light dots + center URL pill. */
+/* macOS-style window chrome — just the three traffic-light dots, no URL
+   bar. The dots alone are enough to read as "this is a window"; adding
+   a URL pill made the frame feel busy. */
 .carousel-chrome {
   display: flex;
   align-items: center;
-  height: 36px;
+  height: 30px;
   padding: 0 14px;
   background: linear-gradient(180deg, #1a1d27 0%, #15171f 100%);
   border-bottom: 1px solid var(--border);
-  position: relative;
 }
 
 .carousel-chrome-dots {
@@ -436,30 +441,14 @@ img {
 .carousel-chrome-dots span:nth-child(2) { background: #febc2e; }
 .carousel-chrome-dots span:nth-child(3) { background: #28c840; }
 
-.carousel-chrome-url {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 14px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--text-muted);
-  max-width: 60%;
-  white-space: nowrap;
-}
-
 /* Slide stage — fixed aspect ratio so the height doesn't jump as images
-   load. 16:10 matches a maximized desktop browser at typical sizes; a
-   little taller than 16:9 so the journal feed shows more content. */
+   load. Matches the actual screenshot aspect (1470×834, ~16:9) so we
+   can use object-fit: cover without cropping any content. If you swap
+   in screenshots with a different aspect ratio later, update this. */
 .carousel-stage {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1470 / 834;
   background: var(--bg);
 }
 
@@ -582,23 +571,17 @@ img {
     margin-top: 48px;
   }
   .carousel-chrome {
-    height: 28px;
+    height: 24px;
     padding: 0 10px;
   }
   .carousel-chrome-dots span {
     width: 9px;
     height: 9px;
   }
-  .carousel-chrome-url {
-    font-size: 10px;
-    padding: 3px 10px;
-    max-width: 70%;
-  }
-  .carousel-stage {
-    /* Phones: trade some width for height so the screenshot is readable.
-       Desktop screenshots scaled to phone width are tiny otherwise. */
-    aspect-ratio: 4 / 3;
-  }
+  /* Stage keeps the desktop aspect ratio on mobile too — squashing it
+     to 4:3 was cropping the sides of the screenshots. They'll be
+     smaller on phones, which is unavoidable, but at least the full
+     content is visible. */
 }
 
 /* ===== BUTTONS ===== */
