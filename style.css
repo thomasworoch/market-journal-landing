@@ -253,7 +253,15 @@ img {
   overflow: hidden;
   min-height: 90vh;
   display: flex;
+  /* Stack children vertically: hero-content (headline + CTA + stats)
+     on top, hero-carousel below. Default flex-direction is row, which
+     was fine when .hero-content was the only flex child but made
+     hero-content + hero-carousel sit side-by-side once the carousel
+     became a sibling. align-items: center horizontally centers both
+     in the column. */
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-bg {
