@@ -736,6 +736,11 @@ img {
 .features {
   padding: 120px 0;
   position: relative;
+  /* Section divider — matches the footer's top border and the app's
+     `mjBorder` separator pattern (1px line in #1e2030). Same treatment
+     between every long-form section so the page reads as discrete
+     chapters rather than one ambiguous scroll. */
+  border-top: 1px solid var(--border);
 }
 
 /* ===== SHOWCASE LAYOUT (zig-zag feature rows) ===== */
@@ -2110,6 +2115,7 @@ img {
 /* ===== CTA SECTION ===== */
 .cta-section {
   padding: 80px 0 120px;
+  border-top: 1px solid var(--border);
 }
 
 .cta-card {
