@@ -222,19 +222,20 @@ img {
 /* ===== HERO ===== */
 .hero {
   position: relative;
-  padding: 160px 0 100px;
+  padding: 140px 0 64px;
   overflow: hidden;
-  min-height: 90vh;
   display: flex;
   /* Stack children vertically: hero-content (headline + CTA + stats)
      on top, hero-carousel below. Default flex-direction is row, which
      was fine when .hero-content was the only flex child but made
      hero-content + hero-carousel sit side-by-side once the carousel
      became a sibling. align-items: center horizontally centers both
-     in the column. */
+     in the column.
+     Dropped the previous `min-height: 90vh` — the headline + carousel
+     already produce plenty of hero height; the min-height was forcing
+     extra empty space below the carousel on tall viewports. */
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .hero-bg {
@@ -299,7 +300,17 @@ img {
   font-size: 13px;
   font-weight: 500;
   color: var(--text-secondary);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+}
+
+/* Crossfade for the cycling tagline. Only the text span fades — the
+   icon and pill chrome stay rock-steady so the badge doesn't appear
+   to flicker every 4 seconds. */
+.hero-badge #hero-badge-text {
+  transition: opacity 0.35s ease;
+}
+.hero-badge #hero-badge-text.is-fading {
+  opacity: 0;
 }
 
 .hero-headline {
@@ -307,7 +318,7 @@ img {
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.04em;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .hero-accent {
@@ -322,13 +333,13 @@ img {
   color: var(--text-secondary);
   max-width: 580px;
   line-height: 1.7;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .hero-actions {
   display: flex;
   gap: 16px;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .hero-stats {
@@ -377,7 +388,7 @@ img {
 .hero-carousel {
   position: relative;
   width: min(95vw, 1680px);
-  margin: 80px auto 0;
+  margin: 56px auto 0;
   /* Side padding so the carousel doesn't kiss the viewport edge on
      narrower laptops between 1100px–1300px. */
   padding: 0 24px;
@@ -677,7 +688,7 @@ img {
 /* ===== SECTIONS ===== */
 .section-header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 .section-tag {
@@ -707,7 +718,7 @@ img {
 
 /* ===== FEATURES ===== */
 .features {
-  padding: 120px 0;
+  padding: 88px 0;
   position: relative;
   /* Section divider — matches the footer's top border and the app's
      `mjBorder` separator pattern (1px line in #1e2030). Same treatment
@@ -722,9 +733,9 @@ img {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 64px;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 72px;
 }
-.showcase:first-of-type { margin-top: 60px; }
+.showcase:first-of-type { margin-top: 40px; }
 .showcase-reverse .showcase-text { order: 2; }
 .showcase-reverse .showcase-visual { order: 1; }
 
@@ -2087,13 +2098,13 @@ img {
 
 /* ===== CTA SECTION ===== */
 .cta-section {
-  padding: 80px 0 120px;
+  padding: 64px 0 88px;
   border-top: 1px solid var(--border);
 }
 
 .cta-card {
   text-align: center;
-  padding: 72px 40px;
+  padding: 56px 40px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
@@ -2224,7 +2235,7 @@ img {
   }
 
   .hero {
-    padding: 130px 0 80px;
+    padding: 110px 0 56px;
     min-height: auto;
   }
 
@@ -2247,7 +2258,7 @@ img {
   }
 
   .features {
-    padding: 80px 0;
+    padding: 64px 0;
   }
 
   .features-grid {

@@ -55,9 +55,13 @@
       <div class="hero-glow hero-glow-2"></div>
       <div class="hero-grid"></div>
       <div class="container hero-content animate-on-scroll">
-        <div class="hero-badge">
+        <!-- Tagline pill — text cycles through several audience
+             framings via initHeroBadge() in main.js. The id lets the
+             JS find this element; data-cycle holds the rotation list,
+             pipe-separated to keep the markup clean. -->
+        <div class="hero-badge" id="hero-badge">
           <i data-lucide="trending-up" style="width:14px;height:14px;color:#10b981"></i>
-          <span>Built for active investors</span>
+          <span id="hero-badge-text" data-cycle="Built for active investors|Built for thesis trackers|Built for narrative thinkers|Built for active researchers" aria-live="polite">Built for active investors</span>
         </div>
         <h1 class="hero-headline">Your Investing Journal,<br /><span class="hero-accent">Supercharged</span></h1>
         <p class="hero-sub">

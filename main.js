@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initSmoothScroll();
   initCTATracking();
+  initHeroBadge();
   initHeroCarousel();
 });
 
@@ -73,6 +74,37 @@ function initNavbar() {
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+}
+
+// ===== Hero Badge — Cycling Taglines =====
+// Rotates the text inside the "Built for active investors" pill through
+// several audience framings. Hold for 3.5s, fade out 0.35s, swap text,
+// fade back in. Tagline list is pipe-separated in the element's
+// data-cycle attribute so it lives next to the markup, not in this file.
+// prefers-reduced-motion: skip the rotation entirely; user just sees
+// the first phrase.
+function initHeroBadge() {
+  const text = document.getElementById('hero-badge-text');
+  if (!text) return;
+
+  const raw = text.dataset.cycle || '';
+  const taglines = raw.split('|').map((s) => s.trim()).filter(Boolean);
+  if (taglines.length < 2) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const HOLD_MS = 3500;
+  const FADE_MS = 350; // matches the CSS transition
+
+  let i = 0;
+  setInterval(() => {
+    text.classList.add('is-fading');
+    setTimeout(() => {
+      i = (i + 1) % taglines.length;
+      text.textContent = taglines[i];
+      text.classList.remove('is-fading');
+    }, FADE_MS);
+  }, HOLD_MS);
 }
 
 // ===== Hero Carousel =====
