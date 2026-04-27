@@ -160,10 +160,22 @@ img {
 }
 
 /* The nav CTA uses .btn .btn-primary (defined in the BUTTONS section
-   below) so it matches the body's primary buttons exactly — same green
-   fill, dark text, and glow. The old .nav-cta / .nav-links / mobile-
-   drawer rules were removed when we stripped the nav down to just the
-   logo + CTA. */
+   below) so the green fill / dark text / glow match the body's primary
+   buttons. Override size here so it stays nav-appropriate — body
+   buttons are deliberately big focal CTAs; the nav version is a
+   compact "always visible" entry point. */
+.nav .btn-primary {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  /* Subtler glow than the body buttons — full strength was too much
+     in a 64px nav bar. */
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+}
+
+.nav .btn-primary:hover {
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.25), 0 2px 6px rgba(16, 185, 129, 0.15);
+}
 
 /* ===== HERO ===== */
 .hero {
@@ -2150,14 +2162,12 @@ img {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  /* Nav CTA stays visible on mobile — there's nothing else in the nav
-     except the logo, so hiding the CTA was leaving a half-empty bar.
-     The .btn .btn-primary base styles already size reasonably for
-     mobile (12px 24px padding); shrink the font slightly so it doesn't
-     dominate the bar at narrow widths. */
+  /* Nav CTA — already compact at desktop size (8px 16px / 14px). On
+     mobile we just tighten the horizontal padding a touch so it fits
+     comfortably next to the logo at narrow widths. */
   .nav .btn-primary {
-    padding: 10px 16px;
-    font-size: 14px;
+    padding: 8px 12px;
+    font-size: 13px;
   }
 
   .hero {
