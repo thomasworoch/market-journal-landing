@@ -347,7 +347,7 @@ img {
 .hero-actions {
   display: flex;
   gap: 16px;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 .hero-stats {
@@ -379,6 +379,226 @@ img {
   width: 1px;
   height: 32px;
   background: var(--border);
+}
+
+/* ===== HERO CAROUSEL =====
+   Auto-cycling product screenshots in a faux-browser frame, sitting under
+   the hero CTA. Crossfades between slides every 5s; hover pauses; dots
+   jump to a specific slide. Respects prefers-reduced-motion (no auto-play
+   when set; the user controls advance via dots). */
+
+.hero-carousel {
+  width: 100%;
+  max-width: 1080px;
+  margin: 80px auto 0;
+  position: relative;
+}
+
+.carousel-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  /* Subtle outer glow tinted toward the hero's green accent so the frame
+     reads as the focal element below the headline gradient. */
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(16, 185, 129, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+}
+
+/* macOS-style window chrome — three traffic-light dots + center URL pill. */
+.carousel-chrome {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 14px;
+  background: linear-gradient(180deg, #1a1d27 0%, #15171f 100%);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.carousel-chrome-dots {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.carousel-chrome-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3a3d4a;
+}
+
+.carousel-chrome-dots span:nth-child(1) { background: #ff5f57; }
+.carousel-chrome-dots span:nth-child(2) { background: #febc2e; }
+.carousel-chrome-dots span:nth-child(3) { background: #28c840; }
+
+.carousel-chrome-url {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 60%;
+  white-space: nowrap;
+}
+
+/* Slide stage — fixed aspect ratio so the height doesn't jump as images
+   load. 16:10 matches a maximized desktop browser at typical sizes; a
+   little taller than 16:9 so the journal feed shows more content. */
+.carousel-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--bg);
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+.carousel-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Per-slide placeholder shown when the image hasn't loaded yet (or is
+   missing entirely — useful while screenshots are being prepared). The
+   `data-caption` attribute provides the label, so we don't need extra
+   markup. The img above sits on top once it loads and covers this. */
+.carousel-slide::before {
+  content: 'Screenshot — ' attr(data-caption);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 16px,
+      rgba(255, 255, 255, 0.015) 16px,
+      rgba(255, 255, 255, 0.015) 32px
+    ),
+    var(--card);
+  pointer-events: none;
+}
+
+.carousel-slide img:not([src=""]) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Controls below the frame: dots + caption text. */
+.carousel-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Each dot is a button — the inner span is the visible pill so we can
+   keep a generous click/tap target without making the visual dot huge. */
+.carousel-dot {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.carousel-dot span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-light);
+  transition: background var(--transition), width var(--transition);
+}
+
+.carousel-dot:hover span {
+  background: var(--text-muted);
+}
+
+.carousel-dot.is-active span {
+  background: var(--green);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.carousel-caption {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  min-height: 1.2em; /* prevent layout shift when caption changes */
+}
+
+/* Reduced-motion: drop the crossfade transition. Auto-cycle is disabled
+   in JS as well. */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-slide {
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    margin-top: 48px;
+  }
+  .carousel-chrome {
+    height: 28px;
+    padding: 0 10px;
+  }
+  .carousel-chrome-dots span {
+    width: 9px;
+    height: 9px;
+  }
+  .carousel-chrome-url {
+    font-size: 10px;
+    padding: 3px 10px;
+    max-width: 70%;
+  }
+  .carousel-stage {
+    /* Phones: trade some width for height so the screenshot is readable.
+       Desktop screenshots scaled to phone width are tiny otherwise. */
+    aspect-ratio: 4 / 3;
+  }
 }
 
 /* ===== BUTTONS ===== */

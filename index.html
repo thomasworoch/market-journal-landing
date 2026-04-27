@@ -78,6 +78,55 @@
             <span class="hero-stat-label">Market data</span>
           </div>
         </div>
+
+        <!-- Hero carousel — auto-cycling product screenshots in a browser
+             frame. Slides hold for 5s then crossfade. Hover pauses; dots
+             jump to a specific slide. Respects prefers-reduced-motion.
+             Drop screenshots into /public/screenshots/ with the filenames
+             below; see public/screenshots/README.md for sizing/format. -->
+        <div class="hero-carousel" id="hero-carousel" aria-roledescription="carousel" aria-label="Product screenshots">
+          <div class="carousel-frame">
+            <!-- macOS-style window chrome — purely decorative -->
+            <div class="carousel-chrome" aria-hidden="true">
+              <div class="carousel-chrome-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="carousel-chrome-url">
+                <i data-lucide="lock" style="width:11px;height:11px"></i>
+                <span>app.marketjournal.io</span>
+              </div>
+            </div>
+
+            <div class="carousel-stage">
+              <div class="carousel-slide is-active" data-caption="Mission Control" role="group" aria-roledescription="slide" aria-label="Mission Control dashboard, 1 of 5">
+                <img src="/screenshots/01-mission-control.png" alt="Mission Control dashboard with watchlist, fear & greed index, Polymarket cards, and macro indicators" loading="eager" fetchpriority="high">
+              </div>
+              <div class="carousel-slide" data-caption="Journal Feed" role="group" aria-roledescription="slide" aria-label="Journal feed, 2 of 5">
+                <img src="/screenshots/02-journal-feed.png" alt="Journal feed for a stock with sentiment-coded entries, tags, and AI summary" loading="lazy">
+              </div>
+              <div class="carousel-slide" data-caption="Insights" role="group" aria-roledescription="slide" aria-label="Insights view, 3 of 5">
+                <img src="/screenshots/03-insights.png" alt="Insights view showing price chart with journal entries overlaid, activity heatmap, and sentiment by tag" loading="lazy">
+              </div>
+              <div class="carousel-slide" data-caption="New Entry" role="group" aria-roledescription="slide" aria-label="New entry form, 4 of 5">
+                <img src="/screenshots/04-new-entry.png" alt="New entry form with link preview, sentiment picker, tags, and milestone linking" loading="lazy">
+              </div>
+              <div class="carousel-slide" data-caption="Themes" role="group" aria-roledescription="slide" aria-label="Theme view, 5 of 5">
+                <img src="/screenshots/05-themes.png" alt="Theme view tracking ideas across multiple tickers" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <div class="carousel-dots" role="tablist" aria-label="Choose a screenshot">
+              <button class="carousel-dot is-active" type="button" data-slide-to="0" role="tab" aria-selected="true" aria-label="Show Mission Control"><span></span></button>
+              <button class="carousel-dot" type="button" data-slide-to="1" role="tab" aria-selected="false" aria-label="Show Journal Feed"><span></span></button>
+              <button class="carousel-dot" type="button" data-slide-to="2" role="tab" aria-selected="false" aria-label="Show Insights"><span></span></button>
+              <button class="carousel-dot" type="button" data-slide-to="3" role="tab" aria-selected="false" aria-label="Show New Entry"><span></span></button>
+              <button class="carousel-dot" type="button" data-slide-to="4" role="tab" aria-selected="false" aria-label="Show Themes"><span></span></button>
+            </div>
+            <div class="carousel-caption" id="hero-carousel-caption" aria-live="polite">Mission Control</div>
+          </div>
+        </div>
       </div>
     </section>
 
