@@ -132,6 +132,36 @@ img {
   align-items: center;
   justify-content: space-between;
   height: 64px;
+  /* relative anchor for the absolutely-positioned .nav-announcement
+     pill, so it centers within the nav-inner row not the whole nav. */
+  position: relative;
+}
+
+/* Centered "iOS App Coming Soon" pill — informational, sits at the
+   visual midpoint of the nav. Subtle neutral tint so it doesn't
+   compete with the green CTA on the right. Mobile hides it (see
+   responsive media query) since the bar is already busy. */
+.nav-announcement {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  pointer-events: none; /* purely decorative, not interactive */
+}
+
+.nav-announcement i {
+  color: var(--text-secondary);
 }
 
 .nav-logo {
@@ -2173,6 +2203,17 @@ img {
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* Hide the centered announcement pill below 900px — once the logo and
+   CTA start crowding the nav, the pill would overlap them. The "iOS
+   coming soon" message also lives in the page body / store badges
+   later, so dropping it from the nav on mobile isn't a content loss. */
+@media (max-width: 900px) {
+  .nav-announcement {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   /* Nav CTA — already compact at desktop size (8px 16px / 14px). On
      mobile we just tighten the horizontal padding a touch so it fits
