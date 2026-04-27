@@ -143,6 +143,18 @@ img {
   letter-spacing: -0.02em;
 }
 
+/* App icon next to the wordmark — sized to read as a "logo lockup"
+   alongside 17px text without dominating it. Slight rounding follows
+   the iOS/macOS app-icon convention. alt="" because the wordmark
+   beside it already names the brand for screen readers. */
+.nav-logo-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: block;
+  flex-shrink: 0;
+}
+
 .nav-logo-icon {
   display: flex;
   align-items: center;
