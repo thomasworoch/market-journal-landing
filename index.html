@@ -25,24 +25,17 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <!-- Navigation -->
+    <!-- Navigation — minimal: logo on the left, primary CTA on the
+         right. Features link + mobile drawer were removed; the CTA is
+         the only action a nav visitor needs. -->
     <nav class="nav" id="nav">
       <div class="nav-inner container">
         <a href="/" class="nav-logo">
           <span>Market Journal</span>
         </a>
-        <div class="nav-links">
-          <a href="#features">Features</a>
-        </div>
-        <a href="https://app.marketjournal.io" class="nav-cta" data-cta="navbar">
-          Try Now for Free <span class="arrow">&rarr;</span>
+        <a href="https://app.marketjournal.io" class="btn btn-primary" data-cta="navbar">
+          Try Now for Free &rarr;
         </a>
-        <button class="nav-mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
-          <i data-lucide="menu"></i>
-        </button>
-      </div>
-      <div class="nav-mobile" id="mobile-menu">
-        <a href="#features">Features</a>
       </div>
     </nav>
 

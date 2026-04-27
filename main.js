@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initScrollAnimations();
   initNavbar();
-  initMobileMenu();
   initSmoothScroll();
   initCTATracking();
   initHeroCarousel();
@@ -74,25 +73,6 @@ function initNavbar() {
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-}
-
-// ===== Mobile Menu =====
-function initMobileMenu() {
-  const toggle = document.getElementById('mobile-toggle');
-  const menu = document.getElementById('mobile-menu');
-
-  if (!toggle || !menu) return;
-
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('open');
-  });
-
-  // Close menu when clicking a link
-  menu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('open');
-    });
-  });
 }
 
 // ===== Hero Carousel =====
