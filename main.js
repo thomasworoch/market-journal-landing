@@ -112,7 +112,8 @@ function initHeroCarousel() {
 
   const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
   const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
-  const caption = carousel.querySelector('#hero-carousel-caption');
+  const blurbTitle = carousel.querySelector('#hero-carousel-title');
+  const blurbText = carousel.querySelector('#hero-carousel-text');
 
   if (slides.length === 0) return;
 
@@ -133,9 +134,15 @@ function initHeroCarousel() {
       d.classList.toggle('is-active', active);
       d.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-    if (caption) {
-      const c = slides[current].dataset.caption;
-      if (c) caption.textContent = c;
+    // Per-slide blurb: title + body. Stored on each slide as data-attrs
+    // so the content stays in markup, not duplicated in JS. The aria-live
+    // regions on these elements announce updates to screen readers.
+    const slide = slides[current];
+    if (blurbTitle && slide.dataset.blurbTitle) {
+      blurbTitle.textContent = slide.dataset.blurbTitle;
+    }
+    if (blurbText && slide.dataset.blurbText) {
+      blurbText.textContent = slide.dataset.blurbText;
     }
   }
 

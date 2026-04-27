@@ -382,20 +382,63 @@ img {
 }
 
 /* ===== HERO CAROUSEL =====
-   Auto-cycling product screenshots in a faux-browser frame, sitting under
-   the hero CTA. Crossfades between slides every 5s; hover pauses; dots
-   jump to a specific slide. Respects prefers-reduced-motion (no auto-play
-   when set; the user controls advance via dots). */
+   Auto-cycling product screenshots in a faux-browser frame, with a
+   side blurb pane on desktop that updates per slide. Crossfades between
+   slides every 5s; hover pauses; dots jump to a specific slide.
+   Respects prefers-reduced-motion (no auto-play when set; the user
+   controls advance via dots).
+
+   Layout breaks out of the surrounding .container's 1140px width — the
+   carousel sits as a direct child of .hero (not .hero-content) so it
+   can use the full hero width. We center it via margin: auto and
+   constrain with min(95vw, 1680px). */
 
 .hero-carousel {
-  width: 100%;
-  /* Wider than the surrounding .container (1140px) on purpose — the
-     screenshot is the focal element, and breathing room beyond the
-     headline width makes it feel like the product is "stepping forward"
-     out of the page. */
-  max-width: 1320px;
-  margin: 80px auto 0;
   position: relative;
+  width: min(95vw, 1680px);
+  margin: 80px auto 0;
+  /* Side padding so the carousel doesn't kiss the viewport edge on
+     narrower laptops between 1100px–1300px. */
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Two-column layout: blurb pane (left) + frame (right). Stacks on
+   narrow viewports — see media query at the bottom of this section. */
+.carousel-layout {
+  display: grid;
+  grid-template-columns: clamp(280px, 26%, 380px) 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* Blurb pane — left-aligned text describing the active slide. Title +
+   description swap when the active slide changes. Dots sit underneath
+   so the navigation is contextual to the text it controls. */
+.carousel-blurb-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.carousel-blurb-title {
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0;
+}
+
+.carousel-blurb-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+  /* Cap text width even when the column is wider so reading length
+     stays comfortable. */
+  max-width: 380px;
 }
 
 .carousel-frame {
@@ -503,19 +546,15 @@ img {
   z-index: 1;
 }
 
-/* Controls below the frame: dots + caption text. */
-.carousel-controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-top: 20px;
-}
-
+/* Dots — sit at the bottom of the blurb pane on desktop, centered
+   below the frame on mobile (handled by the stacked-layout media
+   query). They're contextual to the blurb because both update together
+   to indicate the active slide. */
 .carousel-dots {
   display: flex;
   gap: 8px;
   align-items: center;
+  margin-top: 8px;
 }
 
 /* Each dot is a button — the inner span is the visible pill so we can
@@ -551,13 +590,6 @@ img {
   border-radius: 4px;
 }
 
-.carousel-caption {
-  font-size: 13px;
-  color: var(--text-muted);
-  letter-spacing: 0.02em;
-  min-height: 1.2em; /* prevent layout shift when caption changes */
-}
-
 /* Reduced-motion: drop the crossfade transition. Auto-cycle is disabled
    in JS as well. */
 @media (prefers-reduced-motion: reduce) {
@@ -566,9 +598,29 @@ img {
   }
 }
 
+/* Stacked layout below 1100px — side-by-side gets cramped once the
+   text column would shrink below ~280px. Stack puts text above the
+   frame, both centered and full-width. Dots stay under the blurb
+   text where they read naturally as a progress indicator for the
+   title/description they refer to.  */
+@media (max-width: 1100px) {
+  .carousel-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .carousel-blurb-pane {
+    text-align: center;
+    align-items: center;
+  }
+  .carousel-blurb-text {
+    max-width: 600px;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-carousel {
     margin-top: 48px;
+    padding: 0 16px;
   }
   .carousel-chrome {
     height: 24px;
@@ -578,10 +630,9 @@ img {
     width: 9px;
     height: 9px;
   }
-  /* Stage keeps the desktop aspect ratio on mobile too — squashing it
+  /* Stage keeps the desktop aspect ratio on mobile — squashing it
      to 4:3 was cropping the sides of the screenshots. They'll be
-     smaller on phones, which is unavoidable, but at least the full
-     content is visible. */
+     smaller on phones (unavoidable), but the full content is visible. */
 }
 
 /* ===== BUTTONS ===== */
